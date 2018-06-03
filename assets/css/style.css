@@ -1,0 +1,28 @@
+body {
+	font:1em/1.5em Helvetica, Arial, sans-serif;
+}
+
+h1 {
+	font-family: 'Fascinate Inline', cursive;
+	font-size: 5em;
+	margin: 1em 0;
+	text-align: center;
+}
+
+h2 {
+	font-family: 'Faster One', cursive;
+	margin-bottom: 1em;
+}
+
+section {
+	margin: 2em auto;
+	width: 100%;
+	max-width: 960px;
+}
+
+div.clues {
+	letter-spacing: 0.25em;
+}
+
+/*font-family: 'Megrim', cursive;
+font-family: 'Monoton', cursive;*/
