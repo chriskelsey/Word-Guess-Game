@@ -6,17 +6,25 @@
 	
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Faster+One|Megrim|Monoton" rel="stylesheet">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700|Faster+One|Fontdiner+Swanky" rel="stylesheet">
 </head>
 <body>
-	<section>
-		<h1>Hangman!</h1>
-		<h2>From the future!!!!!</h2>
-		<div class="clues"></div>
-		<div class="score"></div>
-		<div class="letters"></div>
-	</section>
+	<header>
+		<section>
+			<h1>Hangman!</h1>
+			<h2 id="subtitle">From the future!!!!!</h2>
+		</section>
+	</header>
+	<main>
+		<section>
+			<h3 id="answer" class="answer"> </h3>
+			<p id="instructions" class="instructions">Press any key to get started.</p>
+			<div id="wins"><p>Wins: <span>0</span></p></div>
+			<div id="clues" class="clues"></div>
+			<div id="remainder" class="score"><p>Guesses Remaining: </br><span>10</span></p></div>
+			<div id="letters" class="letters"><p>Letters Guessed: <span></span></p></div>
+		</section>
+	</main>
 	<script src="assets/javascript/game.js"></script>
 </body>
 </html>
