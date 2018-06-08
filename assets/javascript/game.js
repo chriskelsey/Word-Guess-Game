@@ -18,9 +18,6 @@ document.onkeyup = function(evt){
 	letterComp(randMov,replacer,evt.key);
 	winner(randMov.join(''),replacer.join(''));
 	loser();
-	gameReset();
-
-	return true;
 }
 
 //Initialize the underscores to start the game
@@ -46,12 +43,8 @@ function letterComp(mov,arr,str) {
 	for (var i = 0; i < mov.length; i++) {
 		if (str === mov[i]){
 			arr.splice(i,1,str);
-			matched = true;
 		}
 	}
-		if (!matched && str.match(abc) != null && str != 'Meta' && str != "Backspace" && str != "Enter" && str != "Shift" && str != "Control" && str != "Alt") {
-			remaining--;
-		}
 	document.getElementById('clues').textContent = arr.join('');
 	hold.push(str);
 	scoreAndStore(str, hold);
@@ -62,8 +55,16 @@ function scoreAndStore(str,arr) {
 	var lRemainder = letters.querySelector('span');
 	var remainder = document.getElementById('remainder');
 	var rChild = remainder.querySelector('span');
-	if(str.match(abc) != null && str != 'Meta' && str != "Backspace" && str != "Enter" && str != "Shift" && str != "Control" && str != "Alt"){
+	var placed = false;
+
+	for (var i = 0; i < arr.length; i++) {
+		if(str === arr[i -1]){
+			placed = true;
+		}
+	}
+	if(!placed && str.match(abc) != null && str != 'Meta' && str != "Backspace" && str != "Enter" && str != "Shift" && str != "Control" && str != "Alt"){
 		lRemainder.textContent += str;
+		remaining--;
 		rChild.textContent = remaining;
 	}
 
@@ -79,6 +80,7 @@ function winner(mov,str) {
 		winCount.textContent = score;
 		won = true;
 	}
+	gameReset();
 }
 
 function loser() {
@@ -87,7 +89,7 @@ function loser() {
 			answer.textContent = "You Lose!!!";
 			lost = true;
 		}
-	
+	gameReset();
 }
 
 function gameReset(){
